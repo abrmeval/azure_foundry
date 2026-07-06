@@ -1,0 +1,10 @@
+[project]
+name = "speech-agent"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "azure-cognitiveservices-speech>=1.50.0",
+    "dotenv>=0.9.9",
+]
