@@ -5,10 +5,11 @@
 # Since this involves connecting to a project, which may contain privileged resources, key-based authentication is not supported, and the application must use an Entra ID identity to be authenticated.
 
 #he code uses the project client’s get_openai_client method to retrieve an OpenAI client object; with which it can submit prompts to the agent using the same Responses API 
+import os    
 from azure.identity import DefaultAzureCredential
 from azure.ai.projects import AIProjectClient
 
-endpoint = "https://amv-demo-foundry.services.ai.azure.com/api/projects/ai-experiment"
+endpoint = os.getenv("AZURE_FOUNDRY_ENDPOINT")
 
 project_client = AIProjectClient(
     endpoint=endpoint,

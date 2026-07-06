@@ -5,9 +5,9 @@ from openai import OpenAI
 load_dotenv()
 
 
-endpoint = "https://amv-demo-foundry.services.ai.azure.com/openai/v1"
+endpoint = os.getenv("AZURE_FOUNDRY_ENDPOINT")
 deployment_name = "DeepSeek-V4-Flash"
-api_key = os.getenv("AZURE_OPENAI_API_KEY")
+api_key = os.getenv("AZURE_FOUNDRY_API_KEY")
 
 client = OpenAI(base_url=endpoint, api_key=api_key)
 
