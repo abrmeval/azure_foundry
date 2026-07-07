@@ -15,7 +15,7 @@ img = client.images.generate(
     model=deployment_name,
     prompt="A cute baby polar bear",
     n=1,
-    size="250x250",
+    size="256x256",
 )
 
 image_bytes = base64.b64decode(img.data[0].b64_json)
