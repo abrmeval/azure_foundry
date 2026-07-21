@@ -3,12 +3,15 @@ import base64
 from dotenv import load_dotenv
 from openai import OpenAI
 
+# It did not worked with FLUX1.1-PRO or any other GPT model(mini or nano)
+# Maybe trying with GTP-5 or an GPT-Image
+
 load_dotenv()   
 
 # Required environment variables (example names)
 foundry_key=os.getenv("AZURE_FOUNDRY_API_KEY")
 endpoint=os.getenv("AZURE_FOUNDRY_ENDPOINT")
-model_name=os.getenv("AZURE_FOUNDRY_DEDICATED_MODEL")  # e.g., "gpt-image-1"
+model_name=os.getenv("AZURE_FOUNDRY_DEPLOYMENT_NAME")  # e.g., "gpt-image-1"
 
 client = OpenAI(
     api_key=foundry_key,
@@ -28,7 +31,7 @@ image_base64 = next(
     if item.type == "image_generation_call"
 )
 
-with open("foundry_generated.png", "wb") as f:
+with open("foundry_generated-2.png", "wb") as f:
     f.write(base64.b64decode(image_base64))
 
-print("Saved: foundry_generated.png")
+print("Saved: foundry_generated-2.png")
