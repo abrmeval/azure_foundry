@@ -13,7 +13,7 @@ client = ContentUnderstandingClient(
 )
 
 # 1) start analysis with analyzer id + inputs
-analyzer_id = "prebuilt-invoice"
+analyzer_id = "prebuilt-read"
 inputs = [
     {
         "url": "https://github.com/Azure-Samples/azure-ai-content-understanding-python/raw/refs/heads/main/data/invoice.pdf"
