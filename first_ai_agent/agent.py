@@ -4,21 +4,24 @@
 # The code to connect to your agent uses the Azure.AI.Projects library to create an AIProjectClient object connected to your Foundry project.
 # Since this involves connecting to a project, which may contain privileged resources, key-based authentication is not supported, and the application must use an Entra ID identity to be authenticated.
 
-#he code uses the project client’s get_openai_client method to retrieve an OpenAI client object; with which it can submit prompts to the agent using the same Responses API 
+# The code uses the project client’s get_openai_client method to retrieve an OpenAI client object; with which it can submit prompts to the agent using the same Responses API 
 import os    
 from azure.identity import DefaultAzureCredential
 from azure.ai.projects import AIProjectClient
 
 endpoint = os.getenv("AZURE_FOUNDRY_ENDPOINT")
 
+# Get your project from Azure Foundry
 project_client = AIProjectClient(
     endpoint=endpoint,
     credential=DefaultAzureCredential(),
 )
 
+# Agent name
 my_agent = "expense-agent"
 my_version = "1"
 
+# Get the client
 openai_client = project_client.get_openai_client()
 
 # Reference the agent to get a response
